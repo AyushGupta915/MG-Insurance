@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Contact = () => {
   const [contactData, setContactData] = useState({
@@ -13,12 +15,18 @@ const Contact = () => {
     setContactData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(contactData);
-    alert('Your message has been sent!');
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    await axios.post('https://mg-insurance-backend.onrender.com/api/contact', contactData); 
+    toast.success('Your message has been sent!');
     setContactData({ name: '', email: '', message: '' });
-  };
+  } catch (error) {
+    console.error('Error sending message:', error);
+    toast.error('Failed to send your message. Please try again.');
+  }
+};
 
   return (
     <div className="contact-container">

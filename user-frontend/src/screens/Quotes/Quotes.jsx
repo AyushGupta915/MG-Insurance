@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Quotes.css';
 import axios from 'axios';
+import {toast} from 'react-toastify';
 
 const QuoteForm = () => {
   const [formData, setFormData] = useState({
@@ -24,8 +25,8 @@ const QuoteForm = () => {
   e.preventDefault();
 
   try {
-    await axios.post('http://localhost:5000/api/send-quote', formData);
-    alert('Quote submitted and email sent successfully!');
+    await axios.post('https://mg-insurance-backend.onrender.com/api/send-quote', formData);
+    toast.success('Quote submitted and email sent successfully!');
     setFormData({
       name: '',
       email: '',
@@ -36,7 +37,7 @@ const QuoteForm = () => {
     });
   } catch (error) {
     console.error('Email sending failed:', error);
-    alert('Failed to send quote. Please try again later.');
+    toast.error('Failed to send quote. Please try again later.');
   }
 };
 

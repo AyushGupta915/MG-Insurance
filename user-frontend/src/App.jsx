@@ -6,6 +6,7 @@ import Home from './screens/Home/Home.jsx'
 import Quotes from './screens/Quotes/Quotes.jsx'
 import Plans from './screens/Plans/Plans.jsx'
 import Contact from './screens/Contact/Contact.jsx'
+import {ToastContainer} from 'react-toastify'
 
 const App = () => {
   return (
