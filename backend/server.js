@@ -12,7 +12,9 @@ app.use(cors({
 app.use(express.json());
 
 const mailRoute = require('./routes/mailRouter');
+const contactRoute = require('./routes/contactRouter');
 app.use('/api', mailRoute);
+app.use('/api', contactRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
