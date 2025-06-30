@@ -14,7 +14,7 @@ app.use(express.json());
 const mailRoute = require('./routes/mailRouter');
 const contactRoute = require('./routes/contactRouter');
 app.use('/api', mailRoute);
-app.use('/api', contactRouter);
+app.use('/api', contactRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
