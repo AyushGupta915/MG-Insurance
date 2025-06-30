@@ -24,7 +24,7 @@ const QuoteForm = () => {
   e.preventDefault();
 
   try {
-    await axios.post('https://mg-insurance-backend.onrender.com/api/send-quote', formData);
+    await axios.post('http://localhost:5000/api/send-quote', formData);
     alert('Quote submitted and email sent successfully!');
     setFormData({
       name: '',
