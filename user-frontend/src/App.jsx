@@ -11,6 +11,7 @@ import {ToastContainer} from 'react-toastify'
 const App = () => {
   return (
     <div>
+      <ToastContainer position="top-right" autoClose={3000} theme="colored" />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
